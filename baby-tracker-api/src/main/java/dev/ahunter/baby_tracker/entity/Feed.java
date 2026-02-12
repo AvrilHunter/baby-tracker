@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "feed")
 
-//TODO change types to time formats
 public class Feed {
 
     private @Id
