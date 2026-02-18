@@ -5,7 +5,6 @@ import dev.ahunter.baby_tracker.model.CreateFeedRequest;
 import dev.ahunter.baby_tracker.service.FeedingService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +27,7 @@ public class FeedingController {
         return "Endpoints available at GET /feed, POST /feed";
     }
 
-    @GetMapping("/feed")
+    @GetMapping("/feeds")
     public ResponseEntity<Iterable<Feed>> getAllFeeds() {
         return new ResponseEntity<>(feedingService.getAllFeeds(), HttpStatus.OK);
     }
@@ -37,5 +36,4 @@ public class FeedingController {
     public ResponseEntity<Feed> saveFeed(@Valid @RequestBody CreateFeedRequest newFeed){
         return new ResponseEntity<>(feedingService.saveFeed(newFeed),HttpStatus.CREATED);
     }
-
 }

@@ -7,12 +7,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "feed")
+@Table(name = "feeds")
 
 public class Feed {
 
@@ -22,13 +25,13 @@ public class Feed {
     Integer id;
 
     @Column(name = "date")
-    private String date;
+    private LocalDate date;
 
     @Column(name = "start_time")
-    private String startTime;
+    private LocalTime startTime;
 
     @Column(name = "end_time")
-    private String endTime;
+    private LocalTime endTime;
 
     @Column(name = "comments")
     private String comments;
