@@ -1,0 +1,22 @@
+info:
+  name: POST /feed
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8080/feed
+  body:
+    type: json
+    data: |-
+      {"date": "2026-03-01",
+       "startTime":"18:00",
+       "endTime": "18:30",
+      "comments": "went well"}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
