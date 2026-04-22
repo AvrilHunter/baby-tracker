@@ -49,14 +49,3 @@ Selector labels
 app.kubernetes.io/name: {{ include "baby-tracker-api-chart.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "baby-tracker-api-chart.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "baby-tracker-api-chart.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
