@@ -1,52 +1,35 @@
+# Instructions
 
-
-Ticket 1 - initial set up
-Ticket 2 - base Java Spring repo structure
-2.1 Install bruno
-Manually test endpoints
-Write tests for existing endpoints
-
-Ticket 3 - base Java front end
-Ticket 4 - devOps - create dockerfile
-            install minikube
-            create helm charts
-            instructions how to deploy locally onto minikube 
-            update README with how to deploy application - write a script file for these actions
-
-Ticket 7 - create terraform infra for an ECR
-Ticket 8 - create github actions to automatically update the image
-Ticket 9 - review creating an EKS, or alternatively deploy onto an EC2
-Ticket 10 - review spring application improving testing and functionality
-Ticket 11 - binding volumes to the containers
-
-
-# Set Up
-
-## Pre-requisites
-Install [podman] (https://podman.io/docs/installation)
-Install [helm] (https://helm.sh/docs/intro/install/)
-Install [kubectl] (https://kubernetes.io/docs/tasks/tools/)
-Install [minikube] (https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
-Optional [k9s] (https://k9scli.io/topics/install/)
+## Prerequisites
+1. Install [podman](https://podman.io/docs/installation)
+2. Install [helm](https://helm.sh/docs/intro/install/)
+3. Install [kubectl](https://kubernetes.io/docs/tasks/tools/)
+4. Install [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download)
+5. Optional [k9s](https://k9scli.io/topics/install/)
 
 ## Run Spring Application
+
 To run the spring api locally 
+
 `./mvnw spring-boot:run`
 
-### Containerisation
+## Containerisation
 
 `cd baby-tracker-api`
+
 Build the image
 
 ` podman build -t tracker .` 
 
-Run the program locally
+Run the application locally
 
 `podman run -d -p 1024:8080 tracker`
 
-## Running on a cluster
+## Run on Local Cluster
 
-`minikube start` if you encounter issues review [documentation] (https://minikube.sigs.k8s.io/docs/drivers/podman/)
+`minikube start` 
+
+if you encounter issues review [documentation](https://minikube.sigs.k8s.io/docs/drivers/podman/)
 
 `podman save -o tracker.tar localhost/tracker:latest`
 
@@ -54,7 +37,7 @@ Run the program locally
 
 `helm install tracker baby-tracker-api-chart`
 
-# Port forwarding
+## Port forward
 
 ```
 export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=baby-tracker-api-chart,app.kubernetes.io/instance=tracker" -o jsonpath="{.items[0].metadata.name}")
