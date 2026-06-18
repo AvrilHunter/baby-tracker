@@ -32,7 +32,7 @@ As I am keen to progress my devops career I have reviewed deploying the applicat
 
 ## Task 1 - Update README for project and API **DONE**
 
-## Ticket 7 - Deploying on AWS
+## Ticket 7 - Deploying on AWS **DONE**
 
 - Log onto AWS console, set up log in for CLI
 - Create terraform infra for an ECR
@@ -45,4 +45,5 @@ As I am keen to progress my devops career I have reviewed deploying the applicat
 
 ## Ticket 10 - review spring application improving testing and functionality
 
-## Ticket 11 - binding volumes to the containers
+## Ticket 11 - review adding pre-commit hooks
+- Terraform fmt
